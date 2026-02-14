@@ -17,8 +17,8 @@ export default function NewJobForm({ onCreated }: Props) {
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState('');
 
-  const targetRef = useRef<HTMLInputElement>(null);
-  const binderRef = useRef<HTMLInputElement>(null);
+  const targetRef = useRef<HTMLInputElement>(null!);
+  const binderRef = useRef<HTMLInputElement>(null!);
 
   const handleSubmit = async () => {
     if (!targetFile || !binderFile) {
@@ -208,7 +208,7 @@ function FileUploadBox({
 }: {
   label: string;
   file: File | null;
-  inputRef: React.RefObject<HTMLInputElement | null>;
+  inputRef: React.RefObject<HTMLInputElement>;
   onSelect: (f: File) => void;
   accept: string;
 }) {
