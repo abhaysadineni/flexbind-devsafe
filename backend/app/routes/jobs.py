@@ -92,9 +92,9 @@ async def create_job(
     }
     write_meta(jid, meta)
 
-    # Queue Celery task
+   # Run in background thread
     from app.worker import run_pipeline_task
-    run_pipeline_task.delay(jid)
+    run_pipeline_task(jid)
 
     return JobStatusResponse(
         job_id=jid, status=JobStatus.QUEUED, progress=0.0, message="Job queued"
