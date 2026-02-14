@@ -1,6 +1,6 @@
 import type { JobListItem, JobStatusResponse, JobReport } from './types';
 
-const BASE = import.meta.env.VITE_API_URL || '';
+const BASE = 'https://flexbind-api.onrender.com';
 
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
   const res = await fetch(`${BASE}${path}`, init);
